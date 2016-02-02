@@ -30,13 +30,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 {% block main %}
     <div class="row" id="aside_wrap">
-        <div class="col-md-9">
-            <div class="box">
+        <div id="member_edit" class="col-md-9">
+            <div id="member_edit_box" class="box">
                 <div class="box-header">
                     <h3 class="box-title">メンバー登録・編集</h3>
                 </div><!-- /.box-header -->
                 <form role="form" class="form-horizontal" name="form1" id="form1" method="post" action="" enctype="multipart/form-data">
-                    <div class="box-body">
+                    <div id="member_edit_box__body" class="box-body">
 
                         {{ form_row(form._token) }}
                         {{ form_row(form.name) }}
@@ -52,8 +52,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
             </div><!-- /.box -->
 
             <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 text-center btn_area">
-                    <p><a href="{{ url('admin_setting_system_member') }}">戻る</a></p>
+                <div id="member_box__link_area" class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 text-center btn_area">
+                    <p><a id="link__back" href="{{ url('admin_setting_system_member') }}">戻る</a></p>
                 </div>
             </div>
 
@@ -62,10 +62,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         <div class="col-md-3">
             <div class="col_inner" id="aside_column">
                 <div class="box no-header">
-                    <div class="box-body">
+                    <div id="member_edit__button_area" class="box-body">
                         <div class="row text-center">
                             <div class="col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0">
-                                <button class="btn btn-primary btn-block btn-lg" onclick="document.form1.submit();">登録</button>
+                                <button id="button__edit" class="btn btn-primary btn-block btn-lg" onclick="document.form1.submit();">登録</button>
                             </div>
                         </div>
                     </div><!-- /.box-body -->

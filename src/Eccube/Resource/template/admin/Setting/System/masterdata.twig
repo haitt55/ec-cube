@@ -31,19 +31,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 <form id="form1" name="form1" method="post" action="{{ url('admin_setting_system_masterdata') }}">
     {{ form_widget(form._token) }}
     <div class="row">
-        <div class="col-md-12">
-            <div class="box">
+        <div id="masterdata" class="col-md-12">
+            <div id="masterdata_box" class="box">
                 <div class="box-header">
                     <h3 class="box-title">マスターデータ管理</h3>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div id="masterdata_box_body" class="box-body">
                     <div class="form-inline">
-                        <div class="form-group">
+                        <div id="masterdata_box_body__masterdata" class="form-group">
                             {{ form_widget(form.masterdata, {'attr': {'class': 'form-control'}}) }}
                             {{ form_errors(form.masterdata) }}
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block btn-lg" onclick="document.form1.submit();">選択</button>
+                            <button id="masterdata_box_body__select" class="btn btn-primary btn-block btn-lg" onclick="document.form1.submit();">選択</button>
                         </div>
                     </div>
                 </div><!-- /.box-body -->
@@ -57,8 +57,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     {{ form_widget(form2.masterdata_name) }}
     {{ form_widget(form2._token) }}
     <div class="row" id="aside_wrap">
-        <div class="col-md-9">
-            <div class="box">
+        <div id="master_data_result" class="col-md-9">
+            <div id="masterdata_result_box" class="box">
                 <div class="box-header">
                     <div class="read">
                         マスターデータの値を設定できます。<br />
@@ -68,19 +68,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                     </div>
                 </div>
 
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped">
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
+                <div id="master_data_result_box__body" class="table-responsive">
+                    <table id="masterdata_list" class="table table-bordered table-striped">
+                        <tr id="masterdata_list__head">
+                            <th id="masterdata_list__head_id">ID</th>
+                            <th id="masterdata_list__head_name">Name</th>
                             {#<th>Rank</th>#}
                         </tr>
                         {% for data in form2.data %}
-                        <tr>
-                            <td>
+                        <tr id="masterdata_list__item--{{ loop.index }}">
+                            <td id="masterdata_list__id--{{ loop.index }}">
                                 {{form_widget(data.id)}}
                             </td>
-                            <td>
+                            <td id="masterdata_list__name--{{ loop.index }}">
                                 {{form_widget(data.name)}}
                             </td>
                             {#
@@ -96,11 +96,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         </div>
         <div class="col-md-3">
             <div class="col_inner" id="aside_column">
-                <div class="box no-header">
+                <div id="masterdata__edit_button_area" class="box no-header">
                     <div class="box-body">
                         <div class="row text-center">
                             <div class="col-sm-6 col-sm-offset-3 col-md-12 col-md-offset-0">
-                                <button class="btn btn-primary btn-block btn-lg" onclick="document.form2.submit();">登録</button>
+                                <button id="button__edit" class="btn btn-primary btn-block btn-lg" onclick="document.form2.submit();">登録</button>
                             </div>
                         </div>
                     </div><!-- /.box-body -->

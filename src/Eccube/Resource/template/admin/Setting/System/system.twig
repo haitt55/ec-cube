@@ -29,18 +29,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 {% block main %}
     <div class="row">
-        <div class="col-md-12">
-            <div class="box">
+        <div id="system" class="col-md-12">
+            <div id="system_box" class="box">
                 <div class="box-header">
                     <h3 class="box-title">システム情報</h3>
                 </div><!-- /.box-header -->
-                <div class="box-body">
-                    <dl class="dl-horizontal">
+                <div id="system_box__body" class="box-body">
+                    <dl id="system_box__server_spec_info" class="dl-horizontal">
                        {% for key, item in arrSystemInfo %}
-                            <dt>
+                            <dt id="system_box__server_spec_title--{{ loop.index }}">
                                {{item.title}}
                             </dt>
-                            <dd>
+                            <dd id="system_box__server_spec_value--{{ loop.index }}">
                                {{item.value}}
                             </dd>
                         {% endfor %}
@@ -50,12 +50,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
-            <div class="box">
+        <div id="system__php_ino" class="col-md-12">
+            <div id="system__php_info_box" class="box">
                 <div class="box-header">
                     <h3 class="box-title">PHP情報</h3>
                 </div><!-- /.box-header -->
-                <div class="box-body no-padding">
+                <div id="system__php_info_body" class="box-body no-padding">
                     <iframe src="?mode=info" height="500" frameborder="0" style="width: 100%;"></iframe>
                 </div><!-- /.box-body -->
             </div><!-- /.box -->

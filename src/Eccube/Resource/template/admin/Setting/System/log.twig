@@ -30,19 +30,19 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 {% block main %}
     <div class="row">
         <div class="col-md-12">
-            <div class="box">
+            <div id="log_box" class="box">
                 <div class="box-header">
                     <h3 class="box-title">EC-CUBE ログ表示</h3>
                 </div><!-- /.box-header -->
-                <div class="box-body">
+                <div id="log_box_body" class="box-body">
                     <div class="lead">
                         <form name="form1" id="form1" method="post">
                             {{ form_widget(form._token) }}
                             <div class="form-inline">
-                                <div class="form-group">
+                                <div id="log_box_body__files" class="form-group">
                                     {{ form_widget(form.files, {'attr': {'class': 'form-control'}}) }}
                                 </div>
-                                <div class="form-group">
+                                <div id="log_box_body__line-max" class="form-group">
                                     直近の{{ form_widget(form.line_max, {'id': 'line-max', 'attr': {'class': 'form-control'}}) }}行を
                                 </div>
                                 <div class="form-group">
