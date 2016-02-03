@@ -39,18 +39,18 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 {% endblock %}
 {% block main %}
     <h1 class="page-heading">マイページ/ご注文履歴詳細</h1>
-    <div class="container-fluid">
+    <div id="history" class="container-fluid">
 
         {% include 'Mypage/navi.twig' %}
 
-        <div class="row">
-            <div class="col-md-12">
+        <div id="history_order" class="row">
+            <div id="history_order_box" class="col-md-12">
                 <dl class="order_detail">
-                    <dt>ご注文日時：</dt><dd>{{ Order.create_date|date("Y/m/d H:i:s") }}</dd>
-                    <dt>ご注文番号：</dt><dd>{{ Order.id }}</dd>
+                    <dt>ご注文日時：</dt><dd id="history_order_box__date">{{ Order.create_date|date("Y/m/d H:i:s") }}</dd>
+                    <dt>ご注文番号：</dt><dd id="history_order_box__id">{{ Order.id }}</dd>
                     {% if BaseInfo.option_mypage_order_status_display %}
                         <dt>ご注文状況：</dt>
-                        <dd>{{ Order.CustomerOrderStatus }}</dd>
+                        <dd id="history_order_box__status">{{ Order.CustomerOrderStatus }}</dd>
                     {% endif %}
                 </dl>
             </div>
@@ -58,14 +58,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
         <div id="shopping_confirm" class="row">
             <div id="confirm_main" class="col-sm-8">
-                <div class="cart_item table">
+                <div id="order_detail_list" class="cart_item table">
                     <div class="tbody">
 
                         {% set remessage = '' %}
                         {% for OrderDetail in Order.OrderDetails %}
-                            <div class="item_box tr">
+                            <div id="order_detail_list__item--{{ OrderDetail.id }}" class="item_box tr">
                                 <div class="td table">
-                                    <div class="item_photo">
+                                    <div id="order_detail_list__photo--{{ OrderDetail.id }}" class="item_photo">
                                         {% if OrderDetail.Product is null %}
                                             <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
                                         {% else %}
@@ -79,7 +79,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         {% endif %}
                                     </div>
                                     <dl class="item_detail">
-                                        <dt class="item_name text-default">
+                                        <dt id="order_detail_list__name--{{ OrderDetail.id }}" class="item_name text-default">
                                             {% if OrderDetail.Product is null %}
                                                 {{ OrderDetail.product_name }}
                                             {% else %}
@@ -92,7 +92,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                 {% endif %}
                                             {% endif %}
                                         </dt>
-                                        <dd class="item_pattern small">
+                                        <dd id="order_detail_list__pattern--{{ OrderDetail.id }}" class="item_pattern small">
                                             {% if OrderDetail.classcategory_name1 is not empty %}
                                                 {{ OrderDetail.classcategory_name1 }}
                                             {% endif %}
@@ -100,8 +100,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                 / {{ OrderDetail.classcategory_name2 }}
                                             {% endif %}
                                         </dd>
-                                        <dd class="item_price">{{ OrderDetail.price_inc_tax|price }} × {{ OrderDetail.quantity|number_format }}</dd>
-                                        <dd class="item_subtotal">小計：{{ OrderDetail.total_price|price }}</dd>
+                                        <dd id="order_detail_list__price--{{ OrderDetail.id }}" class="item_price">{{ OrderDetail.price_inc_tax|price }} × {{ OrderDetail.quantity|number_format }}</dd>
+                                        <dd id="order_detail_list__subtotal--{{ OrderDetail.id }}" class="item_subtotal">小計：{{ OrderDetail.total_price|price }}</dd>
                                         {% if OrderDetail.product and OrderDetail.price_inc_tax != OrderDetail.productClass.price02IncTax %}
                                         <dd class="text-danger">
                                             <strong>【現在価格】{{ OrderDetail.productClass.price02IncTax|price }}</strong>
@@ -119,14 +119,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                 <h2 class="heading02">配送情報</h2>
                 {% set OrderDetail = Order.OrderDetails.0 %}
                 {% for Shipping in Order.Shippings %}
-                    <div class="column is-edit">
+                    <div id="shipping_list__item--{{ Shipping.id }}" class="column is-edit">
                         <h3>お届け先{% if Order.multiple %}({{ loop.index }}){% endif %}</h3>
-                        <div class="cart_item table">
+                        <div id="shipping_item_list" class="cart_item table">
                             <div class="tbody">
                                 {% for shipmentItem in Shipping.shipmentItems %}
-                                    <div class="item_box tr">
+                                    <div id="shipping_item_list__item--{{ shipmentItem.id }}" class="item_box tr">
                                         <div class="td table">
-                                            <div class="item_photo">
+                                            <div id="shipping_item_list__photo--{{ shipmentItem.id }}" class="item_photo">
                                                 {% if shipmentItem.product is null %}
                                                     <img src="{{ app.config.image_save_urlpath }}/{{ ''|no_image_product }}" />
                                                 {% else %}
@@ -138,8 +138,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                 {% endif %}
                                             </div>
                                             <dl class="item_detail">
-                                                <dt class="item_name text-default">{{ shipmentItem.productName }}</dt>
-                                                <dd class="item_pattern small">
+                                                <dt id="shipping_item_list__name--{{ shipmentItem.id }}" class="item_name text-default">{{ shipmentItem.productName }}</dt>
+                                                <dd id="shipping_item_list__pattern--{{ shipmentItem.id }}" class="item_pattern small">
                                                     {% if shipmentItem.productClass.classCategory1 %}
                                                         {{ shipmentItem.productClass.classCategory1.className }}：{{ shipmentItem.productClass.classCategory1 }}
                                                     {% endif %}
@@ -147,8 +147,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                         <br>{{ shipmentItem.productClass.classCategory2.className }}：{{ shipmentItem.productClass.classCategory2 }}
                                                     {% endif %}
                                                 </dd>
-                                                <dd class="item_price">{{ shipmentItem.priceIncTax|price }} ×{{ shipmentItem.quantity }}</dd>
-                                                <dd class="item_subtotal">小計：{{ shipmentItem.totalPrice|price }}</dd>
+                                                <dd id="shipping_item_list__price--{{ shipmentItem.id }}" class="item_price">{{ shipmentItem.priceIncTax|price }} ×{{ shipmentItem.quantity }}</dd>
+                                                <dd id="shipping_item_list__subtotal--{{ shipmentItem.id }}" class="item_subtotal">小計：{{ shipmentItem.totalPrice|price }}</dd>
                                             </dl>
                                         </div>
                                     </div><!--/item_box-->
@@ -171,27 +171,27 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                     {% if loop.last == false%}<hr>{% endif %}
                 {% endfor %}
                 <h2 class="heading02">お支払方法</h2>
-                <div class="column">
+                <div id="history_order__payment_method" class="column">
                     <p>
                         支払方法：　{{ Order.PaymentMethod }}
                     </p>
                 </div>
                 <h2 class="heading02">お問い合わせ</h2>
-                <div class="column">
+                <div id="history_order__message" class="column">
                     <p>
                         {{ Order.message|default('記載なし')|nl2br }}
                     </p>
                 </div>
 
                 <h2 class="heading02">メール配信履歴一覧</h2>
-                <div class="column mail_list">
+                <div id="mail_history_list" class="column mail_list">
                     {% for MailHistory in Order.MailHistories %}
-                        <dl>
-                            <dt>
+                        <dl id="mail_history_list__item--{{ loop.index }}">
+                            <dt id="mail_history_list__send_date--{{ loop.index }}">
                                 <span class="date">{{ MailHistory.send_date|date("Y/m/d H:i:s") }}</span>
                             </dt>
                             <dd>
-                                <span class="title">
+                                <span id="mail_history_list__subject--{{ loop.index }}" class="title">
                                     <a data-toggle="modal" data-target="#myModal{{ loop.index }}">{{ MailHistory.subject }}</a>
                                 </span>
                                 <p style="display: none;">
@@ -210,21 +210,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
             </div><!-- /.col -->
 
             <div id="confirm_side" class="col-sm-4">
-                <div class="total_box">
-                    <dl>
+                <div id="history_order_total_box" class="total_box">
+                    <dl id="history_order_total_box__price">
                         <dt>小計</dt>
                         <dd>{{ Order.subtotal|price }}</dd>
                     </dl>
-                    <dl>
+                    <dl id="history_order_total_box__charge">
                         <dt>手数料</dt>
                         <dd>{{ Order.charge|price }}</dd>
                     </dl>
-                    <dl>
+                    <dl id="history_order_total_box__delivery_fee_total">
                         <dt>送料合計</dt>
                         <dd>{{ Order.delivery_fee_total|price }}</dd>
                     </dl>
                     {% if Order.discount > 0 %}
-                        <dl>
+                        <dl id="history_order_total_box__discount">
                             <dt>値引き</dt>
                             <dd>
                                     &minus;{{ Order.discount|price }}
@@ -234,7 +234,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
                     <div class="total_amount">
                         <p class="total_price">合計 <strong class="text-primary">{{ Order.payment_total|price }}<span class="small">税込</span></strong></p>
-                        <p><a href="{{ url('mypage_order', {'id': Order.id }) }}" class="btn btn-primary btn-block" {{ csrf_token_for_anchor() }} data-method="put" data-confirm="false">再注文する</a></p>
+                        <p><a id="link__reorder" href="{{ url('mypage_order', {'id': Order.id }) }}" class="btn btn-primary btn-block" {{ csrf_token_for_anchor() }} data-method="put" data-confirm="false">再注文する</a></p>
                     </div>
                     {% if remessage %}
                         <p class="text-danger"><strong>※金額が変更されている商品があるため、再注文時はご注意ください。</strong></p>
@@ -247,7 +247,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <a href="{{ url('mypage') }}" class="btn btn-default btn-sm">戻る</a>
+                <a id="link__back" href="{{ url('mypage') }}" class="btn btn-default btn-sm">戻る</a>
             </div>
         </div>
     </div>

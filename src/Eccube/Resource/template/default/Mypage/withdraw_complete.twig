@@ -27,8 +27,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 {% block main %}
 <h1 class="page-heading">マイページ/退会手続き</h1>
-<div class="container-fluid">
-    <div class="unsubscribe_box">
+<div id="withdraw_complete" class="container-fluid">
+    <div id="withdraw_complete_box" class="unsubscribe_box">
         <div class="row no-padding">
             <div class="col-sm-6 col-sm-offset-3">
                     <h3>退会が完了いたしました</h3>
@@ -37,8 +37,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
             </div>
         </div>
         <div class="row">
-            <div class="btn_group col-sm-offset-4 col-sm-4">
-                <p><a href="{{ url('homepage') }}" class="btn btn-info btn-block">トップページへ</a></p>
+            <div id="withdraw_complete_box__link_top_area" class="btn_group col-sm-offset-4 col-sm-4">
+                <p><a id="link__top" href="{{ url('homepage') }}" class="btn btn-info btn-block">トップページへ</a></p>
             </div>
         </div>
     </div>

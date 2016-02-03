@@ -27,21 +27,21 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 {% block main %}
     <h1 class="page-heading">マイページ/ご注文履歴</h1>
-    <div class="container-fluid">
+    <div id="mypage_index" class="container-fluid">
 
         {% include 'Mypage/navi.twig' %}
 
         <div class="row">
-            <div class="col-md-12">
+            <div id="order_list" class="col-md-12">
 
                 {% if pagination.totalItemCount > 0 %}
                     <p class="intro"><strong>{{ pagination.totalItemCount }}件</strong>の履歴があります。</p>
 
                     {% for Order in pagination %}
-                        <div class="historylist_column row">
+                        <div id="order_list__item--{{ Order.id }}" class="historylist_column row">
                             <div class="col-sm-4">
-                                <h3 class="order_date">{{ Order.order_date|date("Y/m/d H:i:s") }}</h3>
-                                <dl class="order_detail">
+                                <h3 id="order_list__date--{{ Order.id }}" class="order_date">{{ Order.order_date|date("Y/m/d H:i:s") }}</h3>
+                                <dl id="order_list__detail--{{ Order.id }}" class="order_detail">
                                     <dt>ご注文番号：</dt>
                                     <dd>{{ Order.id }}</dd>
                                     {% if BaseInfo.option_mypage_order_status_display %}
@@ -51,12 +51,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 </dl>
                                 <p><a class="btn btn-default btn-sm" href="{{ url('mypage_history', {'id': Order.id}) }}">詳細を見る</a></p>
                             </div>
-                            <div class="col-sm-8">
+                            <div id="order_detail_list" class="col-sm-8">
                                 {% for OrderDetail in Order.OrderDetails %}
                                     <div class="item_box table">
                                         <div class="tbody">
-                                            <div class="tr">
-                                                <div class="item_photo td">
+                                            <div id="order_detail_list__item--{{ OrderDetail.id }}" class="tr">
+                                                <div id="order_detail_list__photo--{{ OrderDetail.id }}" class="item_photo td">
                                                     {% if OrderDetail.Product is null %}
                                                         <img src="{{ app.config.image_save_urlpath }}/{{ '' | no_image_product }}" />
                                                     {% else %}
@@ -68,8 +68,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                     {% endif %}
                                                 </div>
                                                 <dl class="item_detail td">
-                                                    <dt class="item_name">{{ OrderDetail.product_name }}</dt>
-                                                    <dd class="item_pattern small">
+                                                    <dt id="order_detail_list__name--{{ OrderDetail.id }}" class="item_name">{{ OrderDetail.product_name }}</dt>
+                                                    <dd id="order_detail_list__pattern--{{ OrderDetail.id }}" class="item_pattern small">
                                                         {% if OrderDetail.class_category_name1 is not empty %}
                                                             {{ OrderDetail.class_category_name1 }}
                                                         {% endif %}
@@ -77,7 +77,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                             / {{ OrderDetail.class_category_name2 }}
                                                         {% endif %}
                                                     </dd>
-                                                    <dd class="item_price">{{ OrderDetail.price_inc_tax|price }} ×{{ OrderDetail.quantity }}</dd>
+                                                    <dd id="order_detail_list__price--{{ OrderDetail.id }}" class="item_price">{{ OrderDetail.price_inc_tax|price }} ×{{ OrderDetail.quantity }}</dd>
                                                 </dl>
                                             </div>
                                         </div>

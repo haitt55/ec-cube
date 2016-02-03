@@ -27,18 +27,18 @@
 
 {% block main %}
     <h1 class="page-heading">マイページ/会員情報編集(完了)</h1>
-    <div class="container-fluid">
+    <div id="mypage_change_complete" class="container-fluid">
     {% include 'Mypage/navi.twig' %}
-        <div id="deliveradd_input" class="row">
+        <div id="change_complete_box" id="deliveradd_input" class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="complete_message">
                     <h2 class="heading01">会員登録内容の変更が完了いたしました</h2>
                     <p>今後ともご愛顧賜りますようよろしくお願い申し上げます。</p>
                 </div>
                 <div class="row no-padding">
-                    <div class="btn_group col-sm-offset-4 col-sm-4">
+                    <div id="change_complete_box__link_top_area" class="btn_group col-sm-offset-4 col-sm-4">
                         <p>
-                            <a href="{{ url('index') }}" class="btn btn-info btn-block">トップページへ</a>
+                            <a id="link__top" href="{{ url('index') }}" class="btn btn-info btn-block">トップページへ</a>
                         </p>
                     </div>
                 </div>

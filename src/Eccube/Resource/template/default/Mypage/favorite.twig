@@ -31,17 +31,17 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
         {% include 'Mypage/navi.twig' %}
 
-        <div class="row">
+        <div id="favorite" class="row">
             <div class="col-md-12">
             {% if pagination.totalItemCount > 0 %}
                 <p class="intro"><strong>{{ pagination.totalItemCount }}件</strong>のお気に入りがあります。</p>
                 <div id="item_list">
-                    <div class="row no-padding">
+                    <div id="favorite_list" class="row no-padding">
                         {% for Product in pagination %}
                         <div class="col-sm-3 col-xs-6">
-                            <div class="product_item">
+                            <div id="favorite_list__item--{{ Product.id }}" class="product_item">
                                 <a href="{{ url('product_detail', {'id': Product.id}) }}">
-                                    <div class="item_photo">
+                                    <div id="favorite_list__photo--{{ Product.id }}" class="item_photo">
                                         <img src="{{ app.config.image_save_urlpath }}/{{ Product.main_list_image|no_image_product }}" alt="{{ Product.name }}"/>
                                     </div>
                                 </a>
@@ -50,8 +50,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 </a>
                                 <a href="{{ url('product_detail', {'id': Product.id}) }}">
                                     <dl>
-                                        <dt class="item_name" style="height: 22px;"> {{ Product.name }}</dt>
-                                        <dd class="item_price">
+                                        <dt id="favorite_list__name--{{ Product.id }}" class="item_name" style="height: 22px;"> {{ Product.name }}</dt>
+                                        <dd id="favorite_list__price--{{ Product.id }}" class="item_price">
                                             {% if Product.price02_inc_tax_min == Product.price02_inc_tax_max %}
                                                 {{ Product.price02_inc_tax_min|price }}
                                             {% else %}
