@@ -26,7 +26,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 {% block main %}
 
     <h1 class="page-heading">ログイン</h1>
-    <div class="container-fluid">
+    <div id="login" class="container-fluid">
         <form method="post" action="{{ url('login_check') }}">
             <input type="hidden" name="_target_path" value="shopping" />
             <input type="hidden" name="_failure_path" value="shopping_login" />
@@ -41,10 +41,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                     <div class="column">
                         <div class="column_inner clearfix">
                             <div class="icon"><svg class="cb cb-user-circle"><use xlink:href="#cb-user-circle"></use></svg></div>
-                            <div class="form-group">
+                            <div id="login_box__login_email" class="form-group">
                                 {{ form_widget(form.login_email, {attr: {placeholder: 'メールアドレス'}}) }} <br class="sp">
                             </div>
-                            <div class="form-group">
+                            <div id="login_box__login_pass" class="form-group">
                                 {{ form_widget(form.login_pass, {attr: {placeholder: 'パスワード'}}) }}
                                 {% if BaseInfo.option_remember_me %}
                                     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
@@ -55,15 +55,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 {% endif %}
                             </div>
                             {% if error %}
-                                <div class="form-group">
+                                <div id="login_box__error" class="form-group">
                                     <span class="text-danger">{{ error|trans|raw }}</span>
                                 </div>
                             {% endif %}
-                            <div class="btn_area">
-                                <p><button type="submit" class="btn btn-info btn-block btn-lg">ログイン</button></p>
+                            <div id="login_box__button_area" class="btn_area">
+                                <p><button id="login" type="submit" class="btn btn-info btn-block btn-lg">ログイン</button></p>
                                 <ul>
-                                <li><a href="{{ url('forgot') }}">ログイン情報をお忘れですか？</a></li>
-                                <li><a href="{{ url('entry') }}">新規会員登録</a></li>
+                                <li><a id="link__forgot" href="{{ url('forgot') }}">ログイン情報をお忘れですか？</a></li>
+                                <li><a id="link__entry" href="{{ url('entry') }}">新規会員登録</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -72,12 +72,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
                 {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
                 {% else %}
-                <div class="col-sm-4" style="height: 330px;">
+                <div id="login_box__link_shopping_nonmember" class="col-sm-4" style="height: 330px;">
                     <div class="column">
                         <div class="column_inner">
                             <p class="message">会員登録をせずに購入手続きをされたい方は、下記よりお進みください。
                             <p class="btn_area">
-                                <a href="{{ url('shopping_nonmember') }}" class="btn btn-info btn-block btn-lg">ゲスト購入</a></p>
+                                <a id="link__nonmember" href="{{ url('shopping_nonmember') }}" class="btn btn-info btn-block btn-lg">ゲスト購入</a></p>
                         </div>
                     </div>
                 </div><!-- /.col -->

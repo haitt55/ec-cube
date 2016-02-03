@@ -84,11 +84,11 @@ $(function() {
 
 {% block main %}
     <h1 class="page-heading">お届け先の複数指定</h1>
-    <div class="container-fluid">
+    <div id="shipping_multiple" class="container-fluid">
         <form id="shipping-multiple-form" method="post" action="{{ url('shopping_shipping_multiple') }}">
             {{ form_widget(form._token) }}
             <div class="row">
-                <div class="col-sm-10 col-sm-offset-1">
+                <div id="shipping_multiple_list" class="col-sm-10 col-sm-offset-1">
                     <p class="message">各商品のお届け先を選択してください。(※数量の合計は、カゴの中の数量と合わせてください。)</p>
 
                     {% for error in errors %}
@@ -106,13 +106,13 @@ $(function() {
                         <hr>
                         <div class="cart_item table shipping_multiple_table">
                             <div class="tbody">
-                                <div class="item_box tr">
+                                <div id="shipping_multiple_list__item--{{ idx }}" class="item_box tr">
                                     <div class="td table">
-                                        <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ shipmentItem.product.MainListImage|no_image_product }}" alt="{{ shipmentItem.productName }}"/></div>
+                                        <div id="shipping_multiple_list__photo--{{ idx }}" class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ shipmentItem.product.MainListImage|no_image_product }}" alt="{{ shipmentItem.productName }}"/></div>
                                         <dl class="item_detail">
-                                            <dt class="item_name text-default">
+                                            <dt id="shipping_multiple_list__name--{{ idx }}" class="item_name text-default">
                                                 <strong>{{ shipmentItem.productName }}</strong></dt>
-                                            <dd class="item_pattern small">
+                                            <dd id="shipping_multiple_list__pattern--{{ idx }}" class="item_pattern small">
                                                 <p>
                                                     {% if shipmentItem.productClass.classCategory1 %}
                                                         {{ shipmentItem.productClass.classCategory1.className }}：{{ shipmentItem.productClass.classCategory1 }}
@@ -124,7 +124,7 @@ $(function() {
                                                     {% endif %}
                                                 </p>
                                             </dd>
-                                            <dd>小計：{{ shipmentItem.totalPrice|price }}</dd>
+                                            <dd id="shipping_multiple_list__total_price--{{ idx }}">小計：{{ shipmentItem.totalPrice|price }}</dd>
                                             {% for key, value in compItemQuantities %}
                                                 {% if shipmentItem.productClass.id == key %}
                                                     <dd>数量：{{ value }}</dd>
@@ -160,11 +160,11 @@ $(function() {
                         </p>
                     {% endfor %}
                     <div class="row no-padding">
-                        <div class="btn_group col-sm-offset-4 col-sm-4">
+                        <div id="shipping_multiple__button_area" class="btn_group col-sm-offset-4 col-sm-4">
                             <p>
-                                <button type="submit" class="btn btn-primary btn-block">選択したお届け先に送る</button>
+                                <button id="button__send" type="submit" class="btn btn-primary btn-block">選択したお届け先に送る</button>
                             </p>
-                            <p><a href="{{ url('shopping') }}" class="btn btn-info btn-block">戻る</a></p>
+                            <p><a id="link__back" href="{{ url('shopping') }}" class="btn btn-info btn-block">戻る</a></p>
                         </div>
                     </div>
 

@@ -25,7 +25,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 {% block main %}
     <h1 class="page-heading">ご注文完了</h1>
-    <div class="container-fluid">
+    <div id="shopping_complete" class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 {% if is_granted('ROLE_USER') %}
@@ -58,9 +58,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                         今後ともご愛顧賜りますようよろしくお願い申し上げます。</p>
                 </div>
                 <div class="row no-padding">
-                    <div class="btn_group col-sm-offset-4 col-sm-4">
+                    <div id="shopping_complete__link_top_area" class="btn_group col-sm-offset-4 col-sm-4">
                         <p>
-                            <a href="{{ url('homepage') }}" class="btn btn-info btn-block">トップページへ</a>
+                            <a id="link__top" href="{{ url('homepage') }}" class="btn btn-info btn-block">トップページへ</a>
                         </p>
                     </div>
                 </div>
