@@ -23,13 +23,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     <div id="news_area">
         <h2 class="heading01">新着情報</h2>
         <div class="accordion">
-            <div class="newslist">
+            <div id="news_list" class="newslist">
 
                 {% for News in NewsList %}
-                <dl>
+                <dl id="news_list__item--{{ News.id }}">
                     <dt>
-                        <span class="date">{{ News.date|date("Y/m/d") }}</span>
-                        <span class="news_title">
+                        <span id="news_list__date--{{ News.id }}" class="date">{{ News.date|date("Y/m/d") }}</span>
+                        <span id="news_list__title--{{ News.id }}" class="news_title">
                             {{ News.title }}
                         </span>
                         {% if News.comment or News.url %}
@@ -37,7 +37,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                         {% endif %}
                     </dt>
                     {% if News.comment or News.url %}
-                    <dd>{{ News.comment|raw|nl2br}}
+                    <dd id="news_list__comment--{{ News.id }}">{{ News.comment|raw|nl2br}}
                         {% if News.url %}<br>
                         <a href="{{ News.url }}" {% if News.link_method == '1' %}target="_blank"{% endif %}>
                         詳しくはこちら

@@ -21,7 +21,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #}
 {% if is_granted('ROLE_USER') %}
     <div id="member" class="member drawer_block pc">
-        <ul class="member_link">
+        <ul id="member_menu" class="member_link">
             <li>
                 <a href="{{ url('mypage') }}">
                     <svg class="cb cb-user-circle"><use xlink:href="#cb-user-circle" /></svg>マイページ
@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     </div>
 {% else %}
     <div id="member" class="member drawer_block pc">
-        <ul class="member_link">
+        <ul id="member_menu" class="member_link">
             <li>
                 <a href="{{ url('entry') }}">
                     <svg class="cb cb-user-circle"><use xlink:href="#cb-user-circle" /></svg>新規会員登録

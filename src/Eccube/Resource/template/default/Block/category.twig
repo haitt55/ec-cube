@@ -20,7 +20,7 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #}
 {% macro tree(Category) %}
-    <li>
+    <li id="category__menu--{{ Category.id }}">
         <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
             {{ Category.name }}
         </a>
@@ -35,7 +35,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 {% endmacro %}
 
 <nav id="category" class="drawer_block pc">
-    <ul class="category-nav">
+    <ul id="category__menu" class="category-nav">
     {% for Category in Categories %}
         {{ _self.tree(Category) }}
     {% endfor %}

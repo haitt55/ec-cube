@@ -32,7 +32,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-xs-12 comment_area">
+        <div id="item_list__comment" class="col-sm-6 col-xs-12 comment_area">
             <div class="txt_center">
                 <h4>新入荷商品特集</h4>
                 <h5>この季節にぴったりな商品をご用意しました</h5>
@@ -43,37 +43,37 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     </div>
     <div class="row">
         <div class="col-sm-4 col-xs-12">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img03.jpg"></div>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img03.jpg"></div>
                     <dl>
-                        <dt class="item_name text-warning">お気に入りのエスプレッソタイム</dt>
-                        <dd class="item_comment">コーヒータイムを上質な時間にしてくれる、口当たりのよさとデザイン性を兼ね備えたエスプレッソカップを集めました・・・</dd>
-                        <dd class="more_link text-warning">read more</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name text-warning">お気に入りのエスプレッソタイム</dt>
+                        <dd id="item_list__comment--{{ 2 }}" class="item_comment">コーヒータイムを上質な時間にしてくれる、口当たりのよさとデザイン性を兼ね備えたエスプレッソカップを集めました・・・</dd>
+                        <dd id="item_list__more_link--{{ 2 }}" class="more_link text-warning">read more</dd>
                     </dl>
                 </a>
             </div>
         </div>
         <div class="col-sm-4 col-xs-12">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img04.jpg"></div>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img04.jpg"></div>
                     <dl>
-                        <dt class="item_name text-warning">アウトドアにおすすめのアイテム</dt>
-                        <dd class="item_comment">カジュアルすぎない感じがちょうどよい、大人のためのアウトドアマガジンから、バイヤーおすすめのアイテムをセレクト・・・</dd>
-                        <dd class="more_link text-warning">read more</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name text-warning">アウトドアにおすすめのアイテム</dt>
+                        <dd id="item_list__comment--{{ 2 }}" class="item_comment">カジュアルすぎない感じがちょうどよい、大人のためのアウトドアマガジンから、バイヤーおすすめのアイテムをセレクト・・・</dd>
+                        <dd id="item_list__more_link--{{ 2 }}" class="more_link text-warning">read more</dd>
                     </dl>
                 </a>
             </div>
         </div>
         <div class="col-sm-4 col-xs-12">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img05.jpg"></div>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img05.jpg"></div>
                     <dl>
-                        <dt class="item_name text-warning">フランス製のデッドストック</dt>
-                        <dd class="item_comment">60～70年代のフランス製のデッドストックの器を集めました。絶妙な色合いと、独特の優しい風合いをお楽しみいただけ・・・</dd>
-                        <dd class="more_link text-warning">read more</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name text-warning">フランス製のデッドストック</dt>
+                        <dd id="item_list__comment--{{ 2 }}" class="item_comment">60～70年代のフランス製のデッドストックの器を集めました。絶妙な色合いと、独特の優しい風合いをお楽しみいただけ・・・</dd>
+                        <dd id="item_list__more_link--{{ 2 }}" class="more_link text-warning">read more</dd>
                     </dl>
                 </a>
             </div>
@@ -81,49 +81,49 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
     </div>
     <div class="row">
         <div class="col-sm-3 col-xs-6">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img06.jpg"></div>
-                    <p class="item_comment text-warning">木彫りのぬくもりがあたたかいアニマルオブジェ</p>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img06.jpg"></div>
+                    <p id="item_list__comment--{{ 2 }}" class="item_comment text-warning">木彫りのぬくもりがあたたかいアニマルオブジェ</p>
                     <dl>
-                        <dt class="item_name">オブジェ（ふくろう）</dt>
-                        <dd class="item_price">\ 1,785</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name">オブジェ（ふくろう）</dt>
+                        <dd id="item_list__price--{{ 2 }}" class="item_price">\ 1,785</dd>
                     </dl>
                 </a>
             </div>
         </div>
         <div class="col-sm-3 col-xs-6">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img07.jpg"></div>
-                    <p class="item_comment text-warning">青色が美しい職人が仕上げた吹きガラス</p>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img07.jpg"></div>
+                    <p id="item_list__comment--{{ 2 }}" class="item_comment text-warning">青色が美しい職人が仕上げた吹きガラス</p>
                     <dl>
-                        <dt class="item_name">ガラス瓶</dt>
-                        <dd class="item_price special_price">\ 1,785</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name">ガラス瓶</dt>
+                        <dd id="item_list__price--{{ 2 }}" class="item_price special_price">\ 1,785</dd>
                     </dl>
                 </a>
             </div>
         </div>
         <div class="col-sm-3 col-xs-6">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img08.jpg"></div>
-                    <p class="item_comment text-warning">いつかは持ちたい。一生モノの銀製カトラリー</p>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img08.jpg"></div>
+                    <p  id="item_list__comment--{{ 2 }}" class="item_comment text-warning">いつかは持ちたい。一生モノの銀製カトラリー</p>
                     <dl>
-                        <dt class="item_name">シルバーカトラリー</dt>
-                        <dd class="item_price">\ 1,785</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name">シルバーカトラリー</dt>
+                        <dd id="item_list__price--{{ 2 }}" class="item_price">\ 1,785</dd>
                     </dl>
                 </a>
             </div>
         </div>
         <div class="col-sm-3 col-xs-6">
-            <div class="pickup_item">
+            <div id="item_list__item--{{ 2 }}" class="pickup_item">
                 <a href="{{  url('product_detail', {id : 2}) }}">
-                    <div class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img09.jpg"></div>
-                    <p class="item_comment text-warning">こだわりのシルクスクリーンプリントがポイント</p>
+                    <div id="item_list__photo--{{ 2 }}" class="item_photo"><img src="{{ app.config.front_urlpath }}/img/top/img09.jpg"></div>
+                    <p id="item_list__comment--{{ 2 }}" class="item_comment text-warning">こだわりのシルクスクリーンプリントがポイント</p>
                     <dl>
-                        <dt class="item_name">フォトクッションカバー</dt>
-                        <dd class="item_price">\ 1,785</dd>
+                        <dt id="item_list__name--{{ 2 }}" class="item_name">フォトクッションカバー</dt>
+                        <dd id="item_list__price--{{ 2 }}" class="item_price">\ 1,785</dd>
                     </dl>
                 </a>
             </div>

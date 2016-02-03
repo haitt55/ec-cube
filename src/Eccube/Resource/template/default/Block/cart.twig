@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         </a>
         <span class="cart_price pc">合計 <span class="price">{{ Cart.total_price|price }}</span></span></p>
     <div id="cart" class="cart">
-        <div class="inner">
+        <div id="cart_item_list" class="inner">
             {% for error in app.session.flashbag.get('eccube.front.cart.error')  %}
                 <div class="message">
                     <p class="errormsg bg-danger">
@@ -43,12 +43,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                 {% set ProductClass = CartItem.Object %}
                 {% set Product = ProductClass.Product %}
                 <div class="item_box clearfix">
-                    <div class="item_photo"><img
+                    <div id="cart_item_list__photo--{{ CartItem.id }}" class="item_photo"><img
                                 src="{{ app.config.image_save_urlpath }}/{{ Product.MainListImage|no_image_product }}"
                                 alt="{{ Product.name }}"></div>
                     <dl class="item_detail">
-                        <dt class="item_name">{{ Product.name }}</dt>
-                        <dd class="item_pattern small">
+                        <dt id="cart_item_list__name--{{ CartItem.id }}" class="item_name">{{ Product.name }}</dt>
+                        <dd id="cart_item_list__pattern--{{ CartItem.id }}" class="item_pattern small">
                             {%- if ProductClass.ClassCategory1 -%}
                                 {{ ProductClass.ClassCategory1.ClassName }}：{{ ProductClass.ClassCategory1 }}
                                 {%- if ProductClass.ClassCategory2 -%}
@@ -56,20 +56,20 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 {%- endif -%}
                             {%- endif -%}
                         </dd>
-                        <dd class="item_price">{{ CartItem.price|price }}<span class="small">税込</span></dd>
-                        <dd class="item_quantity form-group form-inline">数量：{{ CartItem.quantity }}</dd>
+                        <dd id="cart_item_list__price--{{ CartItem.id }}" class="item_price">{{ CartItem.price|price }}<span class="small">税込</span></dd>
+                        <dd id="cart_item_list__quantity--{{ CartItem.id }}" class="item_quantity form-group form-inline">数量：{{ CartItem.quantity }}</dd>
                     </dl>
                 </div><!--/item_box-->
                 <p class="cart_price sp">合計 <span class="price">{{ Cart.total_price|price }}</span></p>
             {% endfor %}
             {% if Cart.CartItems|length > 0 %}
 
-                <div class="btn_area">
+                <div id="cart__button_area" class="btn_area">
                     <ul>
-                        <li>
+                        <li id="button__add">
                             <a href="{{ url('cart') }}" class="btn btn-primary">カートへ進む</a>
                         </li>
-                        <li>
+                        <li id="button__cancel">
                             <button type="button" class="btn btn-default btn-sm cart-trigger">キャンセル</button>
                         </li>
                     </ul>
