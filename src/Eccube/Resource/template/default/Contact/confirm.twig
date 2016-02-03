@@ -28,29 +28,29 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
             <h1 class="page-heading">お問い合わせ</h1>
 
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
+                <div id="contact_confirm" class="row">
+                    <div id="contact_confirm_box" class="col-md-10 col-md-offset-1">
                         <p>内容によっては回答をさしあげるのにお時間をいただくこともございます。<br />
                             また、休業日は翌営業日以降の対応となりますのでご了承ください。</p>
 
                         <form name="form1" id="form1" method="post" action="?">
                             {{ form_widget(form._token) }}
                             <div class="dl_table">
-                                <dl>
+                                <dl id="contact_confirm_box__name">
                                     <dt>{{ form_label(form.name) }}</dt>
                                     <dd class="form-group">
                                         {{ form_widget(form.name.name01) }}
                                         {{ form_widget(form.name.name02) }}
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_confirm_box__kana">
                                     <dt>{{ form_label(form.kana) }}</dt>
                                     <dd class="form-group">
                                         {{ form_widget(form.kana.kana01) }}
                                         {{ form_widget(form.kana.kana02) }}
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_confirm_box__address">
                                     <dt>{{ form_label(form.address) }}</dt>
                                     <dd>
                                         <div class="form-group">
@@ -59,7 +59,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_confirm_box__tel">
                                     <dt>{{ form_label(form.tel) }}</dt>
                                     <dd>
                                         <div class="form-group">
@@ -67,7 +67,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_confirm_box__email">
                                     <dt>{{ form_label(form.email) }}</dt>
                                     <dd>
                                         <div class="form-group">
@@ -75,7 +75,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_confirm_box__contents">
                                     <dt>{{ form_label(form.contents) }}</dt>
                                     <dd>
                                         <div class="column">
@@ -85,9 +85,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                 </dl>
                             </div>
                             <div class="row no-padding">
-                                <div class="btn_group col-sm-offset-4 col-sm-4">
-                                    <p><button type="submit" class="btn btn-primary btn-block" name="mode" value="complete">送信をする</button></p>
-                                    <p><button type="submit" class="btn btn-info btn-block" name="mode" value="back">戻る</button></p>
+                                <div id="contact_confirm_box__menu_button_area" class="btn_group col-sm-offset-4 col-sm-4">
+                                    <p><button id="button__complete" type="submit" class="btn btn-primary btn-block" name="mode" value="complete">送信をする</button></p>
+                                    <p><button id="button__back" type="submit" class="btn btn-info btn-block" name="mode" value="back">戻る</button></p>
                                 </div>
                             </div>
                         </form>

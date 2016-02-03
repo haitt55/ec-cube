@@ -39,16 +39,16 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         <div id="main">
             <h1 class="page-heading">お問い合わせ</h1>
 
-            <div class="container-fluid">
+            <div id="contact" class="container-fluid">
                 <div class="row">
-                    <div class="col-md-10 col-md-offset-1">
+                    <div id="contact_box" class="col-md-10 col-md-offset-1">
                         <p>内容によっては回答をさしあげるのにお時間をいただくこともございます。<br/>
                             また、休業日は翌営業日以降の対応となりますのでご了承ください。</p>
 
                         <form name="form1" id="form1" method="post" action="{{ url('contact') }}">
                             {{ form_widget(form._token) }}
                             <div class="dl_table">
-                                <dl>
+                                <dl id="contact_box__name">
                                     <dt>{{ form_label(form.name) }}<span class="required">必須</span></dt>
                                     <dd class="form-group input_name">
                                         {{ form_widget(form.name.name01) }}
@@ -57,7 +57,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         {{ form_errors(form.name.name02) }}
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_box__kana">
                                     <dt>{{ form_label(form.kana) }}</dt>
                                     <dd class="form-group input_name">
                                         {{ form_widget(form.kana.kana01) }}
@@ -66,7 +66,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         {{ form_errors(form.kana.kana02) }}
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_box__address">
                                     <dt>{{ form_label(form.address) }}</dt>
                                     <dd>
                                         <div class="form-group form-inline input_zip {% if form.zip.zip01.vars.errors is not empty or form.zip.zip02.vars.errors is not empty %}has-error{% endif %}">{{ form_widget(form.zip) }}</div>
@@ -76,7 +76,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_box__tel">
                                     <dt>{{ form_label(form.tel) }}</dt>
                                     <dd>
                                         <div class="form-inline form-group input_tel">
@@ -85,7 +85,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_box__email">
                                     <dt>{{ form_label(form.email) }}<span class="required">必須</span></dt>
                                     <dd>
                                         <div class="form-group">
@@ -94,7 +94,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                         </div>
                                     </dd>
                                 </dl>
-                                <dl>
+                                <dl id="contact_box__contents">
                                     <dt>{{ form_label(form.contents) }}<span class="required">必須</span></dt>
                                     <dd>
                                         <div class="column">
@@ -107,8 +107,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                             <input type="hidden" name="mode" value="confirm">
 
                             <div class="row no-padding">
-                                <div class="btn_group col-sm-offset-4 col-sm-4">
-                                    <p><button type="submit" class="btn btn-primary btn-block">確認ページへ</button></p>
+                                <div id="contact_box__button_area" class="btn_group col-sm-offset-4 col-sm-4">
+                                    <p><button id="button__confirm" type="submit" class="btn btn-primary btn-block">確認ページへ</button></p>
                                 </div>
                             </div>
                         </form>
