@@ -31,7 +31,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
         {{ include('Mypage/navi.twig') }}
 
-        <div class="row">
+        <div id="delivery" class="row">
             <div class="col-md-12">
                 <p class="intro"><strong>{{ Customer.CustomerAddresses|length }}件</strong>のお届け先があります。</p>
                     <div id="deliveradd_select" class="row">
@@ -47,12 +47,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                             </p>
 
                             {% if Customer.CustomerAddresses|length > 0 %}
-                            <div class="table address_table">
+                            <div id="delivery_list" class="table address_table">
                                 <div class="tbody">
 
                                     {% for CustomerAddress in Customer.CustomerAddresses %}
-                                        <div class="addr_box tr">
-                                            <div class="icon_edit td">
+                                        <div id="delivery_list__item--{{ CustomerAddress.id }}" class="addr_box tr">
+                                            <div id="delivery_list__link_delete--{{ CustomerAddress.id }}" class="icon_edit td">
                                             {% if Customer.CustomerAddresses|length != 1 %}
                                                 <a href="{{ url('mypage_delivery_delete', { id : CustomerAddress.id }) }}" {{ csrf_token_for_anchor() }} data-method="delete">
                                                     <svg class="cb cb-close"><use xlink:href="#cb-close" /></svg>
@@ -66,9 +66,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                                     〒{{ CustomerAddress.zip01 }}-{{ CustomerAddress.zip02 }}　{{ CustomerAddress.Pref }}{{ CustomerAddress.addr01 }}{{ CustomerAddress.addr02 }}<br>
                                                     {{ CustomerAddress.tel01 }}-{{ CustomerAddress.tel02 }}-{{ CustomerAddress.tel03 }}</p>
                                                 </label>
-                                                <p class="btn_edit">
+                                                <p id="delivery_list__button_edit--{{ CustomerAddress.id }}" class="btn_edit">
                                                     <a href="{{ url('mypage_delivery_edit', { id : CustomerAddress.id }) }}">
-                                                        <button class="btn btn-default btn-sm">変更</button>
+                                                        <button id="button__edit--{{ CustomerAddress.id }}" class="btn btn-default btn-sm">変更</button>
                                                     </a>
                                                 </p>
                                             </div>

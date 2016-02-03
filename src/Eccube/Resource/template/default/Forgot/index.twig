@@ -26,15 +26,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
         <div class="container-fluid inner no-padding">
             <div id="main">
                 <h1 class="page-heading">パスワードの再発行</h1>
-                <div class="container-fluid">
+                <div id="password_forgot" class="container-fluid">
                     <div class="row">
-                        <div class="col-md-10 col-md-offset-1">
+                        <div id="password_forgot_box" class="col-md-10 col-md-offset-1">
                             <p>ご登録時のメールアドレスを入力して「次へ」ボタンをクリックしてください。</p>
                             <p>※新しくパスワードを発行いたしますので、お忘れになったパスワードはご利用できなくなります。</p>
                             <form name="form1" id="form1" method="post" action="{{ url('forgot') }}">
                                 {{ form_widget(form._token) }}
                                 <div class="dl_table">
-                                    <dl>
+                                    <dl id="password_forgot_box__login_email">
                                         <dt>{{ form_label(form.login_email) }}</dt>
                                         <dd>
                                             <div class="form-group">
@@ -45,8 +45,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
                                     </dl>
                                 </div>
                                 <div class="row no-padding">
-                                <div class="btn_group col-sm-offset-4 col-sm-4">
-                                    <p><button type="submit" class="btn btn-primary btn-block">次のページへ</button></p>
+                                <div id="password_forgot_box__button_" class="btn_group col-sm-offset-4 col-sm-4">
+                                    <p><button id="button__next" type="submit" class="btn btn-primary btn-block">次のページへ</button></p>
                                 </div>
                                 </div>
                             </form>
